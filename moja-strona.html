@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Miły Cytat</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Pacifico', cursive;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(to bottom, #fff7cc, #ffe699);
+      background-size: cover;
+      background-position: center;
+      background-blend-mode: overlay;
+      transition: background-image 0.5s ease-in-out;
+    }
+
+    #quote {
+      background: white;
+      color: black;
+      font-size: 2em;
+      padding: 30px 40px;
+      border-radius: 50px;
+      max-width: 90%;
+      box-shadow: 10px 10px 0 rgba(0,0,0,0.2);
+      position: relative;
+    }
+
+    #quote::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: 30px;
+      width: 0;
+      height: 0;
+      border: 20px solid transparent;
+      border-top-color: white;
+      filter: drop-shadow(2px 2px 0 rgba(0,0,0,0.2));
+    }
+
+    #refresh {
+      font-size: 2em;
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin-top: 30px;
+      color: black;
+      transition: transform 0.3s;
+    }
+
+    #refresh:hover {
+      transform: rotate(90deg);
+    }
+  </style>
+</head>
+<body>
+
+  <div id="quote">Ładowanie cytatu...</div>
+  <button id="refresh" onclick="showRandomQuote()">🔄</button>
+
+  <script>
+    const quotes = [
+      "Pięknie dziś wyglądasz.",
+      "Jesteś silniejsza, niż myślisz.",
+      "Masz wyjątkowy uśmiech.",
+      "Twoje pomysły są wartościowe.",
+      "Zasługujesz na wszystko, co dobre.",
+      "Twoja obecność ma znaczenie.",
+      "Jesteś kimś naprawdę ważnym.",
+      "Twoja empatia to dar.",
+      "Nie bój się być sobą.",
+      "Masz dobre serce.",
+      "Jesteś inspiracją dla innych.",
+      "Twój głos ma znaczenie.",
+      "Potrafisz więcej niż myślisz.",
+      "Twoje marzenia są możliwe.",
+      "Zasługujesz na spokój.",
+      "Jesteś wystarczająca taka, jaka jesteś.",
+      "Twój uśmiech poprawia nastrój innym.",
+      "Nie musisz być idealna, by być cudowna.",
+      "Jesteś pełna światła.",
+      "Masz piękną duszę.",
+      "Nie trać wiary w siebie.",
+      "Ludzie Cię cenią.",
+      "Twoje słowa mogą leczyć.",
+      "Zmieniasz świat, nawet jeśli o tym nie wiesz.",
+      "Masz w sobie siłę.",
+      "Dziękuję, że jesteś.",
+      "Twoja wrażliwość to moc.",
+      "Nie jesteś sama.",
+      "Wszystko się ułoży.",
+      "Masz prawo odpocząć.",
+      "Twoja pasja jest zaraźliwa.",
+      "Twoje serce jest wielkie.",
+      "Jesteś ważna.",
+      "Każdy dzień z Tobą jest lepszy.",
+      "Wnosisz dobro tam, gdzie jesteś.",
+      "Czasem wystarczy być.",
+      "Twoje emocje są ważne.",
+      "Zmieniasz życie innych na lepsze.",
+      "Masz ogromny potencjał.",
+      "Nie zapominaj o sobie.",
+      "Twoje istnienie ma sens.",
+      "Zasługujesz na miłość.",
+      "Dobrze, że jesteś.",
+      "Twoja obecność jest cenna.",
+      "Twoje gesty mają znaczenie.",
+      "Twoje spojrzenie potrafi pocieszyć.",
+      "Twój śmiech jest piękny.",
+      "Masz w sobie dobroć.",
+      "Nie musisz wszystkiego ogarniać.",
+      "Twój spokój jest zaraźliwy."
+    ];
+
+    const backgrounds = [
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1920&q=80"
+    ];
+
+    function showRandomQuote() {
+      const index = Math.floor(Math.random() * quotes.length);
+      document.getElementById('quote').textContent = quotes[index];
+
+      const bgIndex = Math.floor(Math.random() * backgrounds.length);
+      document.body.style.backgroundImage = `url('${backgrounds[bgIndex]}')`;
+    }
+
+    // Startowy cytat i tło
+    showRandomQuote();
+  </script>
+</body>
+</html>
